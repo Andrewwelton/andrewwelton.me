@@ -1,0 +1,19 @@
+{
+  "name": "andrewwelton.me",
+  "version": "1.0",
+  "authors": [
+    "Andrew Welton <andrewwelton1337@gmail.com / awelton@uoguelph.ca>"
+  ],
+  "description": "Personal website",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.2"
+  }
+}

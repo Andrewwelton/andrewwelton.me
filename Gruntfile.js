@@ -32,9 +32,15 @@ module.exports = function(grunt) {
 		copy: {
 			main: {
 				files: [
-					{expand: true, flatten: true, src: ["src/*.html", "src/foundation-icons.woff", "src/foundation-icons.css"], dest: "dist/", filter: "isFile"},
+					{expand: true, flatten: true, src: ["src/*.html", "src/foundation-icons.woff", "src/foundation-icons.css"], dest: "dist/"},
+					{expand: true, cwd:"src/",  src:["images/*"], dest: "dist/"},
 				],
 			},
+			publish: {
+				files: [
+					{expand: true, flatten: true, src: ["dist/*", "src/images/"], dest: "../site/",},
+				],
+			}
 		},
 	});
 
@@ -46,5 +52,8 @@ module.exports = function(grunt) {
 		"closurecompiler:minify",
 		"sass",
 		"copy:main"
+	]);
+	grunt.registerTask("publish", [
+		"copy:publish"
 	]);
 };

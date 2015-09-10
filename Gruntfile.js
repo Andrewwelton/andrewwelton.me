@@ -39,6 +39,7 @@ module.exports = function(grunt) {
 			publish: {
 				files: [
 					{expand: true, flatten: true, src: ["dist/*", "src/images/"], dest: "../site/",},
+					{expand: true, flatten: true, src: ["src/images/*"], dest: "../site/images/",}
 				],
 			}
 		},

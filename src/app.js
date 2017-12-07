@@ -1,31 +1,43 @@
-var homePageContent = "";
-var blogPageContent = "";
-var aboutMePageContent = "";
-var myWorkPageContent = "";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import 'antd/dist/antd.css';
 
-function hashHandler(){
-  if(location.hash == "#blog"){
-    $("#pageContent").html(blogPageContent);
-  } else if(location.hash == "#aboutMe") {
-    $("#pageContent").html(aboutMePageContent);
-  } else if(location.hash == "#myWork") {
-    $("#pageContent").html(myWorkPageContent);
-  } else if(location.hash == "") {
-    $("#pageContent").html(homePageContent);
-  } 
-}
-$(document).ready(function(){
-  $(document).foundation();
-  homePageContent = $("#pageContent").html();
-  $.ajax({url:"blog.html",cache:false}).done(function(html){
-    blogPageContent=html;
-    $.ajax({url:"aboutMe.html",cache:false}).done(function(html){
-      aboutMePageContent=html;
-      $.ajax({url:"myWork.html",cache:false}).done(function(html){
-        myWorkPageContent=html;
-        $(window).bind("hashchange",hashHandler);
-        hashHandler();
-      });
-    });
-  });
-});
+import './App.css';
+import Page from './components/Page';
+import Home from './components/Home';
+import AboutMe from './components/AboutMe';
+import Music from './components/Music';
+import Blog from './components/Blog';
+
+const App = () =>
+  <Router>
+    <Switch>
+      <Route
+        path="/"
+        exact
+        component={
+          () => <Page><Home /></Page>
+        }
+      />
+      <Route
+        path="/aboutMe"
+        component={
+          () => <Page><AboutMe /></Page>
+        }
+      />
+      <Route
+        path="/music"
+        component={
+          () => <Page><Music /></Page>
+        }
+      />
+      <Route
+        path="/blog"
+        component={
+          () => <Page><Blog /></Page>
+        }
+      />
+    </Switch>
+  </Router>
+
+export default App;

@@ -1,0 +1,8 @@
+[package]
+name = "server"
+version = "0.1.0"
+authors = ["Andrew Welton <andrew.welton@magnetforensics.com>"]
+
+[dependencies]
+rocket = "0.3.3"
+rocket_codegen = "0.3.3"

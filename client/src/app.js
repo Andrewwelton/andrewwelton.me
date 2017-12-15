@@ -1,43 +1,52 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import 'antd/dist/antd.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import './App.css';
-import Page from './components/Page';
-import Home from './components/Home';
-import AboutMe from './components/AboutMe';
-import Music from './components/Music';
-import Blog from './components/Blog';
+import "./App.css";
+import "bulma/css/bulma.css";
+import Page from "./components/Page";
+import Home from "./components/Home";
+import AboutMe from "./components/AboutMe";
+import Music from "./components/Music";
+import BlogContainer from "./containers/BlogContainer";
 
-const App = () =>
+const App = () => (
   <Router>
     <Switch>
       <Route
         path="/"
         exact
-        component={
-          () => <Page><Home /></Page>
-        }
+        component={() => (
+          <Page>
+            <Home />
+          </Page>
+        )}
       />
       <Route
         path="/aboutMe"
-        component={
-          () => <Page><AboutMe /></Page>
-        }
+        component={() => (
+          <Page>
+            <AboutMe />
+          </Page>
+        )}
       />
       <Route
         path="/music"
-        component={
-          () => <Page><Music /></Page>
-        }
+        component={() => (
+          <Page>
+            <Music />
+          </Page>
+        )}
       />
       <Route
         path="/blog"
-        component={
-          () => <Page><Blog /></Page>
-        }
+        component={() => (
+          <Page>
+            <BlogContainer />
+          </Page>
+        )}
       />
     </Switch>
   </Router>
+);
 
 export default App;

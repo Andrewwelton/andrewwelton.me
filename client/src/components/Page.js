@@ -1,46 +1,38 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Icon, Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const { Header, Content, Footer } = Layout;
-
-const Page = ({ children }) =>(
-    <Layout className="layout">
-        <Header>
-        <Menu theme='dark' mode='horizontal' style={{lineHeight: '64px'}}>
-            <Menu.Item>
-                <Link to="/">
-                    Home
-                </Link>
-            </Menu.Item>
-            <Menu.Item>
-                <Link to="/aboutMe">
-                    About Me
-                </Link>
-            </Menu.Item>
-            <Menu.Item>
-                <Link to="/music">
-                    Music
-                </Link>
-            </Menu.Item>
-            <Menu.Item>
-                <Link to="/blog">
-                    Blog
-                </Link>
-            </Menu.Item>
-        </Menu>
-        </Header>
-        <Content>
-            <div>
-                {children}
-            </div>
-        </Content>
-    </Layout>
+const Page = ({ children }) => (
+  <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <nav className="navbar" role="navigation" aria-label="main navigation">
+      <div className="navbar-brand">
+        <div className="navbar-item">Ayy buddy welcome</div>
+      </div>
+      <div className="navbar-item">
+        <Link to="/">Home</Link>
+      </div>
+      <div className="navbar-item">
+        <Link to="/aboutMe">About Me</Link>
+      </div>
+      <div className="navbar-item">
+        <Link to="/music">Music</Link>
+      </div>
+      <div className="navbar-item">
+        <Link to="/blog">Blog</Link>
+      </div>
+    </nav>
+    <div className="container" style={{ flex: 1 }}>
+      <div>{children}</div>
+    </div>
+    <footer className="footer">
+      <p>Get in touch with me here:</p>
+      LINKS N SHEEIT
+    </footer>
+  </div>
 );
 
 Page.propTypes = {
-    children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired
 };
 
 export default Page;
